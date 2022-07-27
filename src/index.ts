@@ -305,5 +305,5 @@ export default {
     setGlobalContext,
     id,
     outputUtils,
-    outputs
+    outputs,
 }
