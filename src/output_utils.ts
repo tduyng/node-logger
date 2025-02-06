@@ -1,5 +1,4 @@
 import type { ReplacerFunction } from './definitions.js'
-import { fastStringifyLog } from './json_schema.js'
 
 /**
  * Replace circular reference when used with JSON.stringify
@@ -24,7 +23,7 @@ export const getCircularReplacer = (): ReplacerFunction => {
  */
 export const stringifyLog = (log: Record<string, unknown>): string => {
     try {
-        return fastStringifyLog(log)
+        return JSON.stringify(log)
     } catch (e) {
         return JSON.stringify(log, getCircularReplacer())
     }

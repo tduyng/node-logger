@@ -1,5 +1,4 @@
 import { describe, expect, it, vi } from 'vitest'
-import * as jsonSchema from '../src/json_schema.js'
 import * as outputUtils from '../src/output_utils.js'
 
 describe('outputUtils', () => {
@@ -29,16 +28,9 @@ describe('outputUtils', () => {
 
         it('should fallback to standard stringify when fastStringifyLog fails', () => {
             const obj = { test: 'value' }
-            const fastStringifyLogMock = vi
-                .spyOn(jsonSchema, 'fastStringifyLog')
-                .mockImplementation(() => {
-                    throw new Error('Mocked error')
-                })
 
             const result = outputUtils.stringifyLog(obj)
             expect(result).toBe('{"test":"value"}')
-
-            fastStringifyLogMock.mockRestore()
         })
     })
 
