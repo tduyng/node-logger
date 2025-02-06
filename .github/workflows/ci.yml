@@ -1,10 +1,10 @@
-name: Continuous integration
+name: CI
 
 on: [push, pull_request]
 
 jobs:
   tests:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     strategy:
       matrix:
@@ -14,23 +14,29 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 10
+          run_install: false
+
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: yarn install --immutable
+        run: pnpm install --frozen-lockfile
 
       - name: Check linter
-        run: yarn check
+        run: pnpm run check
 
       - name: Check typing
-        run: yarn tsc -p tsconfig.lib.json --noEmit
+        run: pnpm tsc -p tsconfig.lib.json --noEmit
 
       - name: Run tests with coverage
-        run: yarn coverage
+        run: pnpm coverage
         env:
           CI: true
 
@@ -39,3 +45,4 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           flag-name: node-${{ matrix.node-version }}
+
