@@ -10,27 +10,27 @@ A lightweight, flexible logger that merges debug-style namespace management, Win
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-  - [Basic logging](#basic-logging)
-  - [Context ID](#context-id)
-  - [Namespaces and levels](#namespaces-and-levels)
-  - [Output formats](#output-formats)
-    - [JSON format](#json-format)
-    - [Pretty format](#pretty-format)
-    - [Custom output functions](#custom-output-functions)
-  - [Log data and metadata](#log-data-and-metadata)
-    - [Adding global metadata](#adding-global-metadata)
-  - [Force logging](#force-logging)
+    - [Basic logging](#basic-logging)
+    - [Context ID](#context-id)
+    - [Namespaces and levels](#namespaces-and-levels)
+    - [Output formats](#output-formats)
+        - [JSON format](#json-format)
+        - [Pretty format](#pretty-format)
+        - [Custom output functions](#custom-output-functions)
+    - [Log data and metadata](#log-data-and-metadata)
+        - [Adding global metadata](#adding-global-metadata)
+    - [Force logging](#force-logging)
 - [Benchmark](#benchmark)
 - [Contributing](#contributing)
 
 ## Features
 
-- **Configurable log levels**: Set log levels globally or per namespace for detailed control.
-- **Flexible output formats**: Supports JSON, Pretty-print, and custom output adapters.
-- **Context ID support**: Optionally track logs across function calls by assigning a unique context ID.
-- **Type-safe & developer-friendly**: Fully written in TypeScript for improved safety and ease of use.
-- **Dual module support**: Supports both ESM and CommonJS imports.
-- **Cross-environment compatibility**: Works with Node.js, Deno, and Bun environments.
+- Set log levels globally or per namespace for detailed control.
+- Supports JSON, Pretty-print, and custom output adapters.
+- Optionally track logs across function calls by assigning a unique context ID.
+- Fully written in TypeScript for improved safety and ease of use.
+- Supports both ESM and CommonJS imports.
+- Works with Node.js, Deno, and Bun environments.
 
 ## Installation
 
@@ -221,4 +221,3 @@ Contributions are welcome! Please refer to our [CONTRIBUTING.md](CONTRIBUTING.md
 [npm-url]: https://www.npmjs.com/package/@ekino/logger
 [coverage-image]: https://img.shields.io/coveralls/ekino/node-logger/master.svg?style=flat-square
 [coverage-url]: https://coveralls.io/github/ekino/node-logger?branch=master
-
