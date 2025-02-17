@@ -1,4 +1,4 @@
-import prettyOutput from 'prettyoutput'
+import prettyOutput from '@tduyng/prettyoutput'
 import {
     type MockInstance,
     afterAll,

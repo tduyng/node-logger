@@ -8,9 +8,9 @@ importers:
 
   .:
     dependencies:
-      prettyoutput:
-        specifier: 1.x
-        version: 1.2.0
+      '@tduyng/prettyoutput':
+        specifier: '2.0'
+        version: 2.0.0
     devDependencies:
       '@biomejs/biome':
         specifier: 1.9.4
@@ -486,6 +486,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@tduyng/prettyoutput@2.0.0':
+    resolution: {integrity: sha512-k0BzqcA1iu7qinrf2yvb7p2cGS2LfQUoU0kt4dZPvxUeuNhK33wFtDgmkAvzYWUHjS7DxHonWnoBL64wEFoGpA==}
+    engines: {node: '>=20'}
+    hasBin: true
+
   '@types/conventional-commits-parser@5.0.1':
     resolution: {integrity: sha512-7uz5EHdzz2TqoMfV7ee61Egf5y6NkcO4FB/1iCCQnbeiI1F3xzv3vK5dBCXUCLQgGYS+mUeigK1iKQzvED+QnQ==}
 
@@ -635,6 +640,10 @@ packages:
 
   colorspace@1.1.4:
     resolution: {integrity: sha512-BgvKJiuVu1igBUF2kEjRCZXol6wiiGbY5ipL/oVPwm0BL9sIpMIzM8IK7vwuxIIzOXMV3Ey5w+vxhm0rR/TN8w==}
+
+  commander@13.1.0:
+    resolution: {integrity: sha512-/rFeCpNJQbhSZjGVwO9RFV3xPqbnERS8MmIQzCtD/zl6gpJuV/bMLuN92oG3F7d8oDEHHRrujSXNUr8fpjntKw==}
+    engines: {node: '>=18'}
 
   commander@2.19.0:
     resolution: {integrity: sha512-6tvAOO+D6OENvRAh524Dh9jcfKTYDQAqvqezbCW82xj5X0pSrcpxtvRKHLG0yBY6SD7PSDrJaj+0AiOcKVd1Xg==}
@@ -1654,6 +1663,10 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.34.8':
     optional: true
 
+  '@tduyng/prettyoutput@2.0.0':
+    dependencies:
+      commander: 13.1.0
+
   '@types/conventional-commits-parser@5.0.1':
     dependencies:
       '@types/node': 22.13.4
@@ -1814,6 +1827,8 @@ snapshots:
     dependencies:
       color: 3.2.1
       text-hex: 1.0.0
+
+  commander@13.1.0: {}
 
   commander@2.19.0: {}
 

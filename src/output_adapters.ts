@@ -1,5 +1,5 @@
 import { Writable } from 'node:stream'
-import prettyOutput from 'prettyoutput'
+import prettyOutput from '@tduyng/prettyoutput'
 import { colors } from './colors.js'
 import type { Log, LogColor, LogLevel, Output } from './definitions.js'
 import { stringifyLog } from './output_utils.js'
