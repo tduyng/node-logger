@@ -45,7 +45,7 @@
         "node": ">=18"
     },
     "dependencies": {
-        "@tduyng/prettyoutput": "2.0"
+        "@tduyng/prettyoutput": "2.x"
     },
     "devDependencies": {
         "@biomejs/biome": "1.9.4",

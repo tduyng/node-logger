@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@tduyng/prettyoutput':
-        specifier: '2.0'
+        specifier: 2.x
         version: 2.0.0
     devDependencies:
       '@biomejs/biome':
