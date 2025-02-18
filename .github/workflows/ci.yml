@@ -33,7 +33,7 @@ jobs:
         run: pnpm run check
 
       - name: Check typing
-        run: pnpm tsc -p tsconfig.lib.json --noEmit
+        run: pnpm tsc -p tsconfig.json --noEmit
 
       - name: Run tests with coverage
         run: pnpm coverage
@@ -45,4 +45,3 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           flag-name: node-${{ matrix.node-version }}
-
