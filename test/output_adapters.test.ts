@@ -1,6 +1,5 @@
 import prettyOutput from '@tduyng/prettyoutput'
 import {
-    type MockInstance,
     afterAll,
     afterEach,
     beforeAll,
@@ -8,6 +7,7 @@ import {
     describe,
     expect,
     it,
+    type MockInstance,
     vi,
 } from 'vitest'
 import { colors } from '../src/colors.js'
@@ -145,12 +145,10 @@ describe('Log Output Adapters', () => {
         it('should handle multiple writes', () => {
             const chunks = ['log1', 'log2', 'log3']
             const encoding = 'utf8'
-            let callbackCount = 0
 
             chunks.forEach((chunk, index) => {
                 logStream.write(chunk, encoding, (error) => {
                     expect(error).toBeUndefined()
-                    callbackCount++
                     if (index === chunks.length - 1) {
                         expect(writeSpy).toHaveBeenCalledTimes(chunks.length)
                         chunks.forEach((chk, idx) => {

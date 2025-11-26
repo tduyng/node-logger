@@ -1,6 +1,6 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
+import type { Logger, LoggerConfig, LogLevel } from '../src/index.js'
 import * as loggerModule from '../src/index.js'
-import type { LogLevel, Logger, LoggerConfig } from '../src/index.js'
 import * as outputs from '../src/output_adapters.js'
 
 describe('Logger Module', () => {

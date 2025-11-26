@@ -48,16 +48,16 @@
         "@tduyng/prettyoutput": "2.x"
     },
     "devDependencies": {
-        "@biomejs/biome": "1.9.4",
+        "@biomejs/biome": "2.3.7",
         "@ekino/logger": "2.1.1",
         "@jonahsnider/benchmark": "5.1.1",
-        "@types/node": "22.13.4",
-        "@vitest/coverage-v8": "3.0.5",
-        "commitlint": "19.7.1",
-        "pino": "9.6.0",
-        "typescript": "5.7.3",
-        "vitest": "3.0.5",
-        "winston": "3.17.0"
+        "@types/node": "24.10.1",
+        "@vitest/coverage-v8": "4.0.14",
+        "commitlint": "20.1.0",
+        "pino": "10.1.0",
+        "typescript": "5.9.3",
+        "vitest": "4.0.14",
+        "winston": "3.18.3"
     },
     "scripts": {
         "lint": "biome check --write",

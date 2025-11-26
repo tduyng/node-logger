@@ -24,7 +24,7 @@ export const getCircularReplacer = (): ReplacerFunction => {
 export const stringifyLog = (log: Record<string, unknown>): string => {
     try {
         return JSON.stringify(log)
-    } catch (e) {
+    } catch {
         return JSON.stringify(log, getCircularReplacer())
     }
 }
@@ -32,7 +32,7 @@ export const stringifyLog = (log: Record<string, unknown>): string => {
 export const isObject = (val: unknown): val is Record<string, unknown> =>
     !!val && typeof val === 'object' && !Array.isArray(val)
 
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+// biome-ignore lint/suspicious/noExplicitAny: <use any here for flexible>
 export const memoize = <T extends (...args: any[]) => unknown>(fn: T): T => {
     const cache = new Map<string, ReturnType<T>>()
     return ((...args: unknown[]) => {

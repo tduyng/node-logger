@@ -1,11 +1,11 @@
 import crypto from 'node:crypto'
 import type {
     Log,
-    LogLevel,
-    LogMethod,
     Logger,
     LoggerConfig,
     LoggerMethods,
+    LogLevel,
+    LogMethod,
     NameSpaceConfig,
     OutputAdapter,
 } from './definitions.js'
