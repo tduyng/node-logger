@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      '@tduyng/prettyoutput':
-        specifier: 2.x
-        version: 2.0.0
     devDependencies:
       '@biomejs/biome':
         specifier: 2.3.7
@@ -42,6 +38,10 @@ importers:
       winston:
         specifier: 3.18.3
         version: 3.18.3
+    optionalDependencies:
+      '@tduyng/prettyoutput':
+        specifier: 2.x
+        version: 2.0.0
 
 packages:
 
@@ -1574,6 +1574,7 @@ snapshots:
   '@tduyng/prettyoutput@2.0.0':
     dependencies:
       commander: 13.1.0
+    optional: true
 
   '@types/chai@5.2.3':
     dependencies:
@@ -1721,7 +1722,8 @@ snapshots:
 
   colors@1.4.0: {}
 
-  commander@13.1.0: {}
+  commander@13.1.0:
+    optional: true
 
   commander@2.19.0: {}
 
