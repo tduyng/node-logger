@@ -42,6 +42,14 @@ yarn add @ekino/logger
 pnpm add @ekino/logger
 ```
 
+### Git hooks
+
+This package configures local Git hooks for the repository by setting:
+
+`core.hooksPath = ./.githooks`
+
+This is done automatically during installation to ensure Git hooks are consistently enabled for contributors.
+
 ## Usage
 
 By default, `@ekino/logger` outputs `warn` and `error` levels for all namespaces, with logs written to stdout in JSON format.

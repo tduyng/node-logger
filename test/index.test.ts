@@ -195,6 +195,24 @@ describe('Logger Module', () => {
             expect(outputArg.message).toBe('test')
             expect(outputArg.data).toEqual({ someData: 'someValue' })
         })
+
+        it('should respect namespace-specific log levels', () => {
+            config.loggers = {} // Reset loggers cache
+            loggerModule.setNamespaces('test5:*=debug', config)
+            loggerModule.setLevel('warn', config)
+            loggerModule.setOutput([outputMock], config)
+
+            const log = loggerModule.createLogger('test5:subTest5', false, config)
+
+            log.debug('ctxId', 'debug message', { someData: 'someValue' })
+
+            expect(outputMock).toHaveBeenCalledOnce()
+
+            const outputArg = outputMock.mock.calls[0]?.[0]
+            expect(outputArg.namespace).toBe('test5:subTest5')
+            expect(outputArg.level).toBe('debug')
+            expect(outputArg.message).toBe('debug message')
+        })
     })
 
     describe('id function', () => {

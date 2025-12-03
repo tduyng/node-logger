@@ -70,6 +70,36 @@ describe('Log Output Adapters', () => {
             const expectedOutput = `${timeFormatted} (test1) [warn] : ${colors.yellow('test message')}\n${prettyOutput({ contextId: 'ctxId', meta: { field1: 'value1' }, data: { someData: 'someValue' } }, { maxDepth: 6 }, 2)}\n`
             expect(writeOutputStub).toHaveBeenCalledWith(expectedOutput)
         })
+
+        it('handles undefined log level with default to error', () => {
+            pretty({
+                level: undefined as unknown as 'error',
+                namespace: 'test2',
+                time,
+                contextId: 'ctxId',
+                meta: {},
+                message: 'test message',
+                data: {},
+            })
+
+            const expectedOutput = `${timeFormatted} (test2) [error] : ${colors.red('test message')}\n${prettyOutput({ contextId: 'ctxId', meta: {}, data: {} }, { maxDepth: 6 }, 2)}\n`
+            expect(writeOutputStub).toHaveBeenCalledWith(expectedOutput)
+        })
+
+        it('handles undefined message with empty string', () => {
+            pretty({
+                level: 'info',
+                namespace: 'test3',
+                time,
+                contextId: 'ctxId',
+                meta: {},
+                message: undefined as unknown as string,
+                data: {},
+            })
+
+            const expectedOutput = `${timeFormatted} (test3) [info] : ${colors.blue('')}\n${prettyOutput({ contextId: 'ctxId', meta: {}, data: {} }, { maxDepth: 6 }, 2)}\n`
+            expect(writeOutputStub).toHaveBeenCalledWith(expectedOutput)
+        })
     })
 
     describe('json', () => {
