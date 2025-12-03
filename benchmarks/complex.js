@@ -31,4 +31,7 @@ suite
         })
     })
 
-await runSuiteWithDynamicTimeout(suite, 40000)
+const table = await runSuiteWithDynamicTimeout(suite)
+process.on('exit', () => {
+    console.table(table)
+})
