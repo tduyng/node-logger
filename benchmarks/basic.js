@@ -2,7 +2,7 @@
 
 import { createBenchmarkSuite, initializeLoggers, runSuiteWithDynamicTimeout } from './utils.js'
 
-const { ekinoLoggerV2, ekinoLoggerV3, pinoLogger, winstonLogger } = initializeLoggers()
+const { ekinoLoggerV3, pinoLogger, winstonLogger } = initializeLoggers()
 
 const suite = createBenchmarkSuite('Logger Benchmark - Basic')
 const logObject = {
@@ -19,13 +19,6 @@ const logObject = {
 const contextId = 'a037df3b-dbee-448e-9abb-8024d867ccc8'
 
 suite
-    .addTest('@ekino/logger v2.x', () => {
-        ekinoLoggerV2.info(
-            contextId,
-            'This is a benchmark log message for @ekino/logger v2.x',
-            logObject
-        )
-    })
     .addTest('@ekino/logger v3.x', () => {
         ekinoLoggerV3.info(
             contextId,

@@ -1,4 +1,3 @@
-import * as logger2 from '@ekino/logger'
 import { Suite } from '@jonahsnider/benchmark'
 import pino from 'pino'
 import * as winston from 'winston'
@@ -8,11 +7,9 @@ import * as logger3 from '../lib/esm/index.js'
  * Initializes loggers for benchmarking.
  */
 export const initializeLoggers = () => {
-    logger2.setLevel('info')
     logger3.setLevel('info')
 
     return {
-        ekinoLoggerV2: logger2.createLogger('benchmark'),
         ekinoLoggerV3: logger3.createLogger('benchmark'),
         pinoLogger: pino({
             level: 'info',
