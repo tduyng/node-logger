@@ -29,17 +29,24 @@ export const stringifyLog = (log: Record<string, unknown>): string => {
     }
 }
 
+/**
+ * Alias for stringifyLog for backwards compatibility
+ */
+export const stringify = stringifyLog
+
 export const isObject = (val: unknown): val is Record<string, unknown> =>
     !!val && typeof val === 'object' && !Array.isArray(val)
 
-// biome-ignore lint/suspicious/noExplicitAny: <use any here for flexible>
-export const memoize = <T extends (...args: any[]) => unknown>(fn: T): T => {
-    const cache = new Map<string, ReturnType<T>>()
-    return ((...args: unknown[]) => {
-        const key = JSON.stringify(args)
-        if (cache.has(key)) return cache.get(key) as ReturnType<T>
-        const result = fn(...args)
-        cache.set(key, result as ReturnType<T>)
-        return result
-    }) as T
+/**
+ * Used to override error toJSON function to customize output
+ * @return {object}
+ */
+export const errorToJson = (obj: unknown): Record<string, unknown> => {
+    const result: Record<string, unknown> = {}
+
+    Object.getOwnPropertyNames(obj).forEach((key) => {
+        result[key] = (obj as Record<string, unknown>)[key]
+    }, obj)
+
+    return result
 }

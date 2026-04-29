@@ -77,15 +77,17 @@ export const prettyOutput = (o: unknown, options: PrettyOptions = {}, indent = 2
  * @param {Log} log
  */
 export const json = (log: Log): void => {
-    const result = stringifyLog({
+    const output = Object.assign({
         level: log.level,
         time: log.time?.toISOString(),
         namespace: log.namespace,
         contextId: log.contextId,
+        ...log.meta,
         message: log.message,
         data: log.data,
-        ...log.meta,
     })
+
+    const result = stringifyLog(output)
 
     logStream.write(`${result}\n`)
 }

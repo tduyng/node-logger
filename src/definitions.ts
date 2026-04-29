@@ -2,7 +2,7 @@ export type LogLevel = 'trace' | 'debug' | 'info' | 'warn' | 'error' | 'none'
 
 export type Log = {
     level: LogLevel
-    time?: Date
+    time: Date
     namespace: string
     contextId: string
     meta: Record<string, unknown>
@@ -22,7 +22,6 @@ export interface Logger {
     info: LogMethod
     warn: LogMethod
     error: LogMethod
-    none?: LogMethod
     isLevelEnabled(level: string): boolean | undefined
     canForceWrite?: boolean
 }
@@ -51,3 +50,13 @@ export interface LoggerConfig {
 export type LogColor = 'red' | 'yellow' | 'blue' | 'white' | 'grey'
 
 export type ReplacerFunction = (key: string | number, value: unknown) => unknown
+
+export interface Internal {
+    loggers: Record<string, Logger>
+    namespaces: NameSpaceConfig[]
+    levels: LogLevel[]
+    level?: number
+    outputs: OutputAdapter[]
+    globalContext: Record<string, unknown>
+    isEnabled?(namespace: string, index: number): boolean
+}

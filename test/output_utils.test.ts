@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import * as outputUtils from '../src/output_utils.js'
 
 describe('outputUtils', () => {
@@ -47,37 +47,6 @@ describe('outputUtils', () => {
             expect(outputUtils.isObject('string')).toBe(false)
             expect(outputUtils.isObject([])).toBe(false)
             expect(outputUtils.isObject(true)).toBe(false)
-        })
-    })
-
-    describe('memoize', () => {
-        it('should return the same result for identical inputs', () => {
-            const mockFn = vi.fn((num: number) => num * 2)
-            const memoizedFn = outputUtils.memoize(mockFn)
-
-            expect(memoizedFn(2)).toBe(4)
-            expect(memoizedFn(2)).toBe(4)
-            expect(mockFn).toHaveBeenCalledTimes(1)
-        })
-
-        it('should handle multiple arguments', () => {
-            const mockFn = vi.fn((a: number, b: number) => a + b)
-            const memoizedFn = outputUtils.memoize(mockFn)
-
-            expect(memoizedFn(1, 2)).toBe(3)
-            expect(memoizedFn(1, 2)).toBe(3)
-            expect(memoizedFn(2, 3)).toBe(5)
-            expect(mockFn).toHaveBeenCalledTimes(2)
-        })
-
-        it('should cache based on stringified arguments', () => {
-            const mockFn = vi.fn((obj: { a: number }) => obj.a)
-            const memoizedFn = outputUtils.memoize(mockFn)
-
-            const arg = { a: 10 }
-            expect(memoizedFn(arg)).toBe(10)
-            expect(memoizedFn({ a: 10 })).toBe(10)
-            expect(mockFn).toHaveBeenCalledTimes(1)
         })
     })
 })

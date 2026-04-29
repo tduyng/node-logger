@@ -134,15 +134,15 @@ describe('Log Output Adapters', () => {
             })
 
             expect(writeOutputStub).toHaveBeenCalledWith(
-                `{"level":"warn","time":"2019-01-11T11:13:46.232Z","namespace":"test1","contextId":"ctxId","message":"test message","data":{"someData":"someValue"},"field1":"value1"}\n`
+                `{"level":"warn","time":"2019-01-11T11:13:46.232Z","namespace":"test1","contextId":"ctxId","field1":"value1","message":"test message","data":{"someData":"someValue"}}\n`
             )
         })
 
-        it('outputs JSON without time if time is undefined', () => {
+        it('outputs JSON with time when time is provided', () => {
             json({
                 level: 'warn',
                 namespace: 'test1',
-                time: undefined,
+                time: time,
                 contextId: 'ctxId',
                 meta: { field1: 'value1' },
                 message: 'test message',
@@ -150,7 +150,7 @@ describe('Log Output Adapters', () => {
             })
 
             expect(writeOutputStub).toHaveBeenCalledWith(
-                `{"level":"warn","namespace":"test1","contextId":"ctxId","message":"test message","data":{"someData":"someValue"},"field1":"value1"}\n`
+                `{"level":"warn","time":"2019-01-11T11:13:46.232Z","namespace":"test1","contextId":"ctxId","field1":"value1","message":"test message","data":{"someData":"someValue"}}\n`
             )
         })
     })
