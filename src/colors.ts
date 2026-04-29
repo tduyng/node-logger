@@ -20,4 +20,5 @@ const createColors = () => ({
 })
 
 const colors = createColors()
+
 export { colors }

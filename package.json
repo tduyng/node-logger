@@ -55,9 +55,6 @@
         "vitest": "4.0.15",
         "winston": "3.18.3"
     },
-    "optionalDependencies": {
-        "@tduyng/prettyoutput": "2.x"
-    },
     "scripts": {
         "lint": "biome check --write",
         "check": "biome check",

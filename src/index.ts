@@ -202,7 +202,7 @@ setLevel(logLevel)
 
 /************* EXPORT *************/
 export * from './definitions.js'
-export { outputUtils, outputs }
+export { outputs, outputUtils }
 export default {
     createLogger,
     setLevel,

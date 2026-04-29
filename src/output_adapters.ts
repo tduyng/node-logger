@@ -1,8 +1,12 @@
 import { Writable } from 'node:stream'
-import prettyOutput from '@tduyng/prettyoutput'
+import { inspect } from 'node:util'
 import { colors } from './colors.js'
 import type { Log, LogColor, LogLevel, Output } from './definitions.js'
 import { stringifyLog } from './output_utils.js'
+
+type PrettyOptions = {
+    maxDepth?: number
+}
 
 /**
  * Object mapping log color and log level
@@ -60,6 +64,13 @@ export const pretty = (log: Log): void => {
 
     logStream.write(`${result}\n`)
 }
+
+const prettyOutput = (o: unknown, options: PrettyOptions = {}, indent = 2): string =>
+    inspect(o, {
+        ...options,
+        depth: options.maxDepth ?? 6,
+        indent: ' '.repeat(indent),
+    } as Parameters<typeof inspect>[1])
 
 /**
  * Log in json to stdout
