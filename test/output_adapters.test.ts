@@ -1,4 +1,3 @@
-import prettyOutput from '@tduyng/prettyoutput'
 import {
     afterAll,
     afterEach,
@@ -11,7 +10,14 @@ import {
     vi,
 } from 'vitest'
 import { colors } from '../src/colors.js'
-import { json, logStream, pretty, prettyTime, twoDigitNumber } from '../src/output_adapters.js'
+import {
+    json,
+    logStream,
+    pretty,
+    prettyOutput,
+    prettyTime,
+    twoDigitNumber,
+} from '../src/output_adapters.js'
 
 describe('Log Output Adapters', () => {
     const time = new Date(1547205226232)

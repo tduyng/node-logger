@@ -65,7 +65,7 @@ export const pretty = (log: Log): void => {
     logStream.write(`${result}\n`)
 }
 
-const prettyOutput = (o: unknown, options: PrettyOptions = {}, indent = 2): string =>
+export const prettyOutput = (o: unknown, options: PrettyOptions = {}, indent = 2): string =>
     inspect(o, {
         ...options,
         depth: options.maxDepth ?? 6,
