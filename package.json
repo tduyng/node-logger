@@ -41,9 +41,6 @@
     "files": [
         "/lib"
     ],
-    "engines": {
-        "node": ">=20"
-    },
     "devDependencies": {
         "@biomejs/biome": "2.4.13",
         "@types/node": "24.12.2",
